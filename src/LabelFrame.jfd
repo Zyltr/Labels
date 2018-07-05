@@ -1,0 +1,80 @@
+JFDML JFormDesigner: "7.0.0.0.92" Java: "9.0.4" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq {par l {comp fontLabel:::p::p, comp templateLabel::l:p::p}, space ::330:x}, seq t {par t {comp labelButton::l::368:x, comp templateComboBox::l::368:x, seq {comp selectedFontLabel::::248:x, space :::p, comp fontButton:::p::p}, comp labelScrollPane::l::368:x, seq l {comp labelLabel:::p::p, space :0:0:x}}, space :p:15:p}}}}"
+			"$verticalGroup": "par l {seq l {space :p:15:p, comp labelLabel:::p::p, space u:::p, comp labelScrollPane:::p:60:p, space u:::p, comp fontLabel:::p::p, space u:::p, par b {comp fontButton::b:p::p, comp selectedFontLabel::b:p::p}, space u:::p, comp templateLabel:::p::p, space u:::p, comp templateComboBox:::p::p, space u:::p, comp labelButton:::p::p, space :::p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelLabel"
+				"text": "Label String"
+				"font": &Font0 new java.awt.Font( "Helvetica Neue", 3, 12 )
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "labelScrollPane"
+				"border": new javax.swing.border.LineBorder( sfield java.awt.Color lightGray, 1, false )
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "labelTextArea"
+					"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"font": &Font1 new java.awt.Font( "Helvetica Neue", 0, 12 )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "fontLabel"
+				"text": "Font"
+				"font": #Font0
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "templateLabel"
+				"text": "Template"
+				"font": #Font0
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "templateComboBox"
+				"font": #Font1
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Avery US-Letter"
+					addElement( "Avery US-Letter" )
+				}
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "labelButton"
+				"text": "Generate Labels"
+				"font": #Font0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "labelButtonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "selectedFontLabel"
+				"text": "Helvetica Neue 12 Plain"
+				"font": new java.awt.Font( "Helvetica Neue", 0, 12 )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "fontButton"
+				"text": "Change Font"
+				"font": new java.awt.Font( "Helvetica Neue", 0, 12 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "fontButtonActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 315 )
+		} )
+	}
+}
