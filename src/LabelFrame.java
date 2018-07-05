@@ -89,8 +89,8 @@ public class LabelFrame extends JFrame
 
             if ( selectedFont != null )
             {
-                selectedFontLabel.setText ( selectedFont.getFontName () + " " + selectedFont.getSize () );
-                selectedFontLabel.setFont ( selectedFont );
+                fontTextArea.setText ( selectedFont.getFontName () + " " + selectedFont.getSize () );
+                fontTextArea.setFont ( selectedFont );
             }
 
             fontChooser.dispose ();
@@ -114,9 +114,10 @@ public class LabelFrame extends JFrame
 		JLabel templateLabel = new JLabel();
 		JComboBox<String> templateComboBox = new JComboBox<>();
 		labelButton = new JButton();
-		selectedFontLabel = new JLabel();
 		fontButton = new JButton();
 		previewButton = new JButton();
+		JScrollPane fontScrollPane = new JScrollPane();
+		fontTextArea = new JTextArea();
 
 		//======== this ========
 		setResizable(false);
@@ -155,10 +156,6 @@ public class LabelFrame extends JFrame
 		labelButton.setFont(new Font("Helvetica Neue", Font.BOLD | Font.ITALIC, 12));
 		labelButton.addActionListener(e -> labelButtonActionPerformed(e));
 
-		//---- selectedFontLabel ----
-		selectedFontLabel.setText("Helvetica Neue 12 Plain");
-		selectedFontLabel.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
-
 		//---- fontButton ----
 		fontButton.setText("Change Font");
 		fontButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
@@ -169,6 +166,16 @@ public class LabelFrame extends JFrame
 		previewButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
 		previewButton.addActionListener(e -> labelButtonActionPerformed(e));
 
+		//======== fontScrollPane ========
+		{
+			fontScrollPane.setBorder(new LineBorder(Color.lightGray));
+
+			//---- fontTextArea ----
+			fontTextArea.setBorder(null);
+			fontTextArea.setText("Helvetica Neue 12 Plain");
+			fontScrollPane.setViewportView(fontTextArea);
+		}
+
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
 		contentPaneLayout.setHorizontalGroup(
@@ -177,26 +184,26 @@ public class LabelFrame extends JFrame
 					.addGap(15, 15, 15)
 					.addGroup(contentPaneLayout.createParallelGroup()
 						.addGroup(contentPaneLayout.createSequentialGroup()
+							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+								.addComponent(labelScrollPane, GroupLayout.Alignment.LEADING)
+								.addComponent(labelButton, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addGroup(contentPaneLayout.createSequentialGroup()
+									.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+										.addComponent(templateComboBox, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+										.addGroup(GroupLayout.Alignment.LEADING, contentPaneLayout.createSequentialGroup()
+											.addComponent(labelLabel)
+											.addGap(0, 0, Short.MAX_VALUE))
+										.addComponent(fontScrollPane, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
+									.addGap(18, 18, 18)
+									.addGroup(contentPaneLayout.createParallelGroup()
+										.addComponent(fontButton)
+										.addComponent(previewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+							.addGap(15, 15, 15))
+						.addGroup(contentPaneLayout.createSequentialGroup()
 							.addGroup(contentPaneLayout.createParallelGroup()
 								.addComponent(fontLabel)
 								.addComponent(templateLabel))
-							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(labelButton, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(labelScrollPane, GroupLayout.Alignment.LEADING)
-								.addGroup(contentPaneLayout.createSequentialGroup()
-									.addGroup(contentPaneLayout.createParallelGroup()
-										.addComponent(selectedFontLabel, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-										.addGroup(contentPaneLayout.createSequentialGroup()
-											.addComponent(labelLabel)
-											.addGap(0, 168, Short.MAX_VALUE))
-										.addComponent(templateComboBox, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
-									.addGap(18, 18, 18)
-									.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-										.addComponent(fontButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(previewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-							.addGap(15, 15, 15))))
+							.addContainerGap(330, Short.MAX_VALUE))))
 		);
 		contentPaneLayout.setVerticalGroup(
 			contentPaneLayout.createParallelGroup()
@@ -207,19 +214,21 @@ public class LabelFrame extends JFrame
 					.addComponent(labelScrollPane, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 					.addComponent(fontLabel)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(fontButton)
-						.addComponent(selectedFontLabel))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(contentPaneLayout.createParallelGroup()
+						.addGroup(contentPaneLayout.createSequentialGroup()
+							.addComponent(fontButton)
+							.addGap(0, 57, Short.MAX_VALUE))
+						.addComponent(fontScrollPane, GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 					.addComponent(templateLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(previewButton)
-						.addComponent(templateComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+						.addComponent(templateComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(previewButton))
+					.addGap(18, 18, 18)
 					.addComponent(labelButton)
-					.addContainerGap())
+					.addGap(20, 20, 20))
 		);
 		pack();
 		setLocationRelativeTo(getOwner());
@@ -230,8 +239,8 @@ public class LabelFrame extends JFrame
 	// Generated using JFormDesigner non-commercial license
 	private JTextArea labelTextArea;
 	private JButton labelButton;
-	private JLabel selectedFontLabel;
 	private JButton fontButton;
 	private JButton previewButton;
+	private JTextArea fontTextArea;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

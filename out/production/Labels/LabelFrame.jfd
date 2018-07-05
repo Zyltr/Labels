@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq {par l {comp fontLabel:::p::p, comp templateLabel::l:p::p}, space :::x}, seq t {par t {comp labelButton::l:::x, comp labelScrollPane::l:::x, seq t {par l {comp selectedFontLabel::::236:x, seq {comp labelLabel:::p::p, space :0:168:x}, comp templateComboBox::::236:x}, space s:::p, par l:::p {comp fontButton:::::x, comp previewButton:::::x}}}, space :p:15:p}}}}"
-			"$verticalGroup": "par l {seq l {space :p:15:p, comp labelLabel:::p::p, space u:::p, comp labelScrollPane:::p:60:p, space u:::p, comp fontLabel:::p::p, space u:::p, par b {comp fontButton::b:p::p, comp selectedFontLabel::b:p::p}, space u:::p, comp templateLabel:::p::p, space u:::p, par b {comp previewButton::b:p::p, comp templateComboBox::b:p::p}, space u:::p, comp labelButton:::p::p, space :::p}}"
+			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq {par t {comp labelScrollPane::l:::x, comp labelButton::l:::x, seq t {par t {comp templateComboBox::l::236:x, seq l {comp labelLabel:::p::p, space :0:0:x}, comp fontScrollPane::l::236:x}, space s:::p, par l {comp fontButton:::p::p, comp previewButton:::::x}}}, space :p:15:p}, seq {par l {comp fontLabel:::p::p, comp templateLabel::l:p::p}, space ::330:x}}}}"
+			"$verticalGroup": "par l {seq l {space :p:15:p, comp labelLabel:::p::p, space u:::p, comp labelScrollPane:::p:60:p, space u:::p, comp fontLabel:::p::p, space :::p, par l {seq {comp fontButton:::p::p, space :0:57:x}, comp fontScrollPane::::86:x}, space u:::p, comp templateLabel:::p::p, space u:::p, par b {comp templateComboBox::b:p::p, comp previewButton::b:p::p}, space s:::p, comp labelButton:::p::p, space :p:20:p}}"
 		} ) {
 			name: "this"
 			"resizable": false
@@ -62,11 +62,6 @@ new FormModel {
 				"font": #Font0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "labelButtonActionPerformed", true ) )
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "selectedFontLabel"
-				"text": "Helvetica Neue 12 Plain"
-				"font": new java.awt.Font( "Helvetica Neue", 0, 12 )
-			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "fontButton"
 				"text": "Change Font"
@@ -79,9 +74,21 @@ new FormModel {
 				"font": new java.awt.Font( "Helvetica Neue", 0, 12 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "labelButtonActionPerformed", true ) )
 			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "fontScrollPane"
+				"border": new javax.swing.border.LineBorder( sfield java.awt.Color lightGray, 1, false )
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "fontTextArea"
+					"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"text": "Helvetica Neue 12 Plain"
+				} )
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 400, 315 )
+			"size": new java.awt.Dimension( 400, 380 )
 		} )
 	}
 }
