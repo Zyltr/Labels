@@ -4,10 +4,11 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq {par l {comp fontLabel:::p::p, comp templateLabel::l:p::p}, space ::330:x}, seq t {par t {comp labelButton::l::368:x, comp templateComboBox::l::368:x, seq {comp selectedFontLabel::::248:x, space :::p, comp fontButton:::p::p}, comp labelScrollPane::l::368:x, seq l {comp labelLabel:::p::p, space :0:0:x}}, space :p:15:p}}}}"
-			"$verticalGroup": "par l {seq l {space :p:15:p, comp labelLabel:::p::p, space u:::p, comp labelScrollPane:::p:60:p, space u:::p, comp fontLabel:::p::p, space u:::p, par b {comp fontButton::b:p::p, comp selectedFontLabel::b:p::p}, space u:::p, comp templateLabel:::p::p, space u:::p, comp templateComboBox:::p::p, space u:::p, comp labelButton:::p::p, space :::p}}"
+			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq {par l {comp fontLabel:::p::p, comp templateLabel::l:p::p}, space :::x}, seq t {par t {comp labelButton::l:::x, comp labelScrollPane::l:::x, seq t {par l {comp selectedFontLabel::::236:x, seq {comp labelLabel:::p::p, space :0:168:x}, comp templateComboBox::::236:x}, space s:::p, par l:::p {comp fontButton:::::x, comp previewButton:::::x}}}, space :p:15:p}}}}"
+			"$verticalGroup": "par l {seq l {space :p:15:p, comp labelLabel:::p::p, space u:::p, comp labelScrollPane:::p:60:p, space u:::p, comp fontLabel:::p::p, space u:::p, par b {comp fontButton::b:p::p, comp selectedFontLabel::b:p::p}, space u:::p, comp templateLabel:::p::p, space u:::p, par b {comp previewButton::b:p::p, comp templateComboBox::b:p::p}, space u:::p, comp labelButton:::p::p, space :::p}}"
 		} ) {
 			name: "this"
+			"resizable": false
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "labelLabel"
 				"text": "Label String"
@@ -71,6 +72,12 @@ new FormModel {
 				"text": "Change Font"
 				"font": new java.awt.Font( "Helvetica Neue", 0, 12 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "fontButtonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "previewButton"
+				"text": "Preview"
+				"font": new java.awt.Font( "Helvetica Neue", 0, 12 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "labelButtonActionPerformed", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

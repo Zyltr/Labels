@@ -1,15 +1,11 @@
+import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
 import java.awt.print.PageFormat;
 import java.awt.print.Paper;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.HashPrintServiceAttributeSet;
-import javax.print.attribute.standard.MediaPrintableArea;
-import javax.swing.*;
-import javax.swing.GroupLayout;
-import javax.swing.border.*;
 /*
  * Created by JFormDesigner on Fri Jun 29 22:20:18 PDT 2018
  */
@@ -31,34 +27,34 @@ public class LabelFrame extends JFrame
 
         PageFormat pageFormat = printerJob.defaultPage (); // new PageFormat ();
 
-		System.out.println ( "Default Page Format Width : " + pageFormat.getWidth () );
-		System.out.println ( "Default Page Format Height : " + pageFormat.getHeight () );
-		System.out.println ( "Default Page Format I-Width : " + pageFormat.getImageableWidth () );
-		System.out.println ( "Default Page Format I-Height : " + pageFormat.getImageableHeight () );
+        System.out.println ( "Default Page Format Width : " + pageFormat.getWidth () );
+        System.out.println ( "Default Page Format Height : " + pageFormat.getHeight () );
+        System.out.println ( "Default Page Format I-Width : " + pageFormat.getImageableWidth () );
+        System.out.println ( "Default Page Format I-Height : " + pageFormat.getImageableHeight () );
 
         Paper usPaper = new Paper ();
 
-		System.out.println ( "US-Letter Width : " + usPaper.getWidth () );
-		System.out.println ( "US-Letter Height : " + usPaper.getHeight () );
+        System.out.println ( "US-Letter Width : " + usPaper.getWidth () );
+        System.out.println ( "US-Letter Height : " + usPaper.getHeight () );
         System.out.println ( "US-Letter I-Width : " + usPaper.getImageableWidth () );
-		System.out.println ( "US-Letter I-Height : " + usPaper.getImageableHeight () );
+        System.out.println ( "US-Letter I-Height : " + usPaper.getImageableHeight () );
 
-		usPaper.setImageableArea ( 0, 0, 612, 792 );
+        usPaper.setImageableArea ( 0, 0, 612, 792 );
 
-		System.out.println ( "New US-Letter I-Width : " + usPaper.getImageableWidth () );
-		System.out.println ( "New US-Letter I-Height : " + usPaper.getImageableHeight () );
-		System.out.println ( );
+        System.out.println ( "New US-Letter I-Width : " + usPaper.getImageableWidth () );
+        System.out.println ( "New US-Letter I-Height : " + usPaper.getImageableHeight () );
+        System.out.println ();
 
-		pageFormat.setPaper ( usPaper );
+        pageFormat.setPaper ( usPaper );
 
-		// Set Printable to LabelPrinter
-		printerJob.setPrintable ( labelPrinter, pageFormat );
+        // Set Printable to LabelPrinter
+        printerJob.setPrintable ( labelPrinter, pageFormat );
     }
 
     private void labelButtonActionPerformed ( ActionEvent actionEvent )
     {
         // TODO add your code here
-        if ( actionEvent.getSource ().equals ( labelButton ) )
+        if ( actionEvent.getSource ().equals ( labelButton ) || actionEvent.getSource ().equals ( previewButton ) )
         {
             boolean doPrint = printerJob.printDialog ();
 
@@ -66,6 +62,8 @@ public class LabelFrame extends JFrame
             {
                 try
                 {
+                    labelPrinter.setPreview ( actionEvent.getSource ().equals ( previewButton ) );
+
                     // Set LabelPrinter String and Font Attributes
                     labelPrinter.setLabelString ( labelTextArea.getText () );
                     labelPrinter.setFont ( selectedFont );
@@ -90,14 +88,15 @@ public class LabelFrame extends JFrame
             selectedFont = fontChooser.getSelectedFont ();
 
             if ( selectedFont != null )
-			{
-				selectedFontLabel.setText ( selectedFont.getFontName () + " " + selectedFont.getSize () );
-				selectedFontLabel.setFont ( selectedFont );
-			}
+            {
+                selectedFontLabel.setText ( selectedFont.getFontName () + " " + selectedFont.getSize () );
+                selectedFontLabel.setFont ( selectedFont );
+            }
 
             fontChooser.dispose ();
         }
     }
+
 
     public static void main ( String[] args )
     {
@@ -117,8 +116,10 @@ public class LabelFrame extends JFrame
 		labelButton = new JButton();
 		selectedFontLabel = new JLabel();
 		fontButton = new JButton();
+		previewButton = new JButton();
 
 		//======== this ========
+		setResizable(false);
 		Container contentPane = getContentPane();
 
 		//---- labelLabel ----
@@ -163,6 +164,11 @@ public class LabelFrame extends JFrame
 		fontButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
 		fontButton.addActionListener(e -> fontButtonActionPerformed(e));
 
+		//---- previewButton ----
+		previewButton.setText("Preview");
+		previewButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
+		previewButton.addActionListener(e -> labelButtonActionPerformed(e));
+
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
 		contentPaneLayout.setHorizontalGroup(
@@ -174,19 +180,22 @@ public class LabelFrame extends JFrame
 							.addGroup(contentPaneLayout.createParallelGroup()
 								.addComponent(fontLabel)
 								.addComponent(templateLabel))
-							.addContainerGap(330, Short.MAX_VALUE))
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(labelButton, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
-								.addComponent(templateComboBox, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+								.addComponent(labelButton, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(labelScrollPane, GroupLayout.Alignment.LEADING)
 								.addGroup(contentPaneLayout.createSequentialGroup()
-									.addComponent(selectedFontLabel, GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addComponent(fontButton))
-								.addComponent(labelScrollPane, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
-								.addGroup(GroupLayout.Alignment.LEADING, contentPaneLayout.createSequentialGroup()
-									.addComponent(labelLabel)
-									.addGap(0, 0, Short.MAX_VALUE)))
+									.addGroup(contentPaneLayout.createParallelGroup()
+										.addComponent(selectedFontLabel, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+										.addGroup(contentPaneLayout.createSequentialGroup()
+											.addComponent(labelLabel)
+											.addGap(0, 168, Short.MAX_VALUE))
+										.addComponent(templateComboBox, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
+									.addGap(18, 18, 18)
+									.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+										.addComponent(fontButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(previewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
 							.addGap(15, 15, 15))))
 		);
 		contentPaneLayout.setVerticalGroup(
@@ -205,7 +214,9 @@ public class LabelFrame extends JFrame
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 					.addComponent(templateLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-					.addComponent(templateComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(previewButton)
+						.addComponent(templateComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 					.addComponent(labelButton)
 					.addContainerGap())
@@ -221,5 +232,6 @@ public class LabelFrame extends JFrame
 	private JButton labelButton;
 	private JLabel selectedFontLabel;
 	private JButton fontButton;
+	private JButton previewButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

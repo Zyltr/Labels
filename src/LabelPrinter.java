@@ -7,6 +7,7 @@ import java.awt.print.PrinterException;
 
 public class LabelPrinter implements Printable
 {
+    private boolean isPreview;
     private String labelString;
     private Font font;
 
@@ -18,6 +19,11 @@ public class LabelPrinter implements Printable
     void setFont ( Font font )
     {
         this.font = font;
+    }
+
+    void setPreview ( boolean isPreview )
+    {
+        this.isPreview = isPreview;
     }
 
     @Override
@@ -50,13 +56,15 @@ public class LabelPrinter implements Printable
         System.out.println ( "LabelPrinter I-Width : " + iWidth );
         System.out.println ( "LabelPrinter I-Height : " +iHeight );
 
-
         System.out.println ( "Page Index : " + pageIndex );
 
         // Draw Rect Minimum Page for Labels; Varies by Printer
-        graphics2D.setColor ( Color.GRAY );
-        Rectangle2D page = new Rectangle2D.Double ( x, y, iWidth, iHeight );
-        graphics2D.draw ( page );
+        if ( isPreview )
+        {
+            graphics2D.setColor ( Color.GRAY );
+            Rectangle2D page = new Rectangle2D.Double ( x, y, iWidth, iHeight );
+            graphics2D.draw ( page );
+        }
 
         // Find differences in X and Y values
         double desiredX = 13.5;
@@ -75,9 +83,12 @@ public class LabelPrinter implements Printable
         System.out.println ( "LabelPrinter New I-Height : " +iHeight );
 
         // Begin Drawing Label Border
-        graphics2D.setColor ( Color.RED );
-        Rectangle2D border = new Rectangle2D.Double ( x, y, iWidth, iHeight );
-        graphics2D.draw ( border );
+        if ( isPreview )
+        {
+            graphics2D.setColor ( Color.GRAY );
+            Rectangle2D border = new Rectangle2D.Double ( x, y, iWidth, iHeight );
+            graphics2D.draw ( border );
+        }
 
         // Begin Drawing Label Boundaries
         double numberOfColumns = 3;
@@ -106,9 +117,12 @@ public class LabelPrinter implements Printable
             for ( int col = 0; col < numberOfColumns; col++ )
             {
                 // Create Rounded Rectangle and Draw
-                graphics2D.setColor ( Color.RED );
-                RoundRectangle2D label = new RoundRectangle2D.Double ( labelX, labelY, labelWidth, labelHeight, 10, 10 );
-                graphics2D.draw ( label );
+                if ( isPreview )
+                {
+                    graphics2D.setColor ( Color.RED );
+                    RoundRectangle2D labelRectangle = new RoundRectangle2D.Double ( labelX, labelY, labelWidth, labelHeight, 10, 10 );
+                    graphics2D.draw ( labelRectangle );
+                }
 
                 // Draw Label String
                 graphics2D.setColor ( Color.BLACK );

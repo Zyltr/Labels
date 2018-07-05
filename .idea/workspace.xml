@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a97e647f-040e-4107-8986-0a6531147fa7" name="Default" comment="" />
+    <list default="true" id="a97e647f-040e-4107-8986-0a6531147fa7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/LabelFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LabelFrame.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelFrame.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LabelPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LabelPrinter.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,30 +16,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LabelFrame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LabelFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LabelFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+            <state relative-caret-position="388">
+              <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#LabelFrame#0;class#LabelFrame#0" />
                 <element signature="method#labelButtonActionPerformed#0;class#LabelFrame#0" />
                 <element signature="method#fontButtonActionPerformed#0;class#LabelFrame#0" />
                 <element signature="method#main#0;class#LabelFrame#0" />
                 <element signature="method#initComponents#0;class#LabelFrame#0" />
-                <marker date="1530779326865" expanded="false" signature="8402:8739" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1530803828872" expanded="false" signature="9404:9484" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LabelPrinter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LabelPrinter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LabelPrinter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="23" column="104" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
+            <state relative-caret-position="270">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#print#0;class#LabelPrinter#0" />
               </folding>
             </state>
           </provider>
@@ -62,8 +68,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/FontChooser.java" />
-        <option value="$PROJECT_DIR$/src/LabelFrame.java" />
         <option value="$PROJECT_DIR$/src/LabelPrinter.java" />
+        <option value="$PROJECT_DIR$/src/LabelFrame.java" />
       </list>
     </option>
   </component>
@@ -186,12 +192,12 @@
       <updated>1530335965006</updated>
       <workItem from="1530335969682" duration="4272000" />
       <workItem from="1530761951567" duration="15330000" />
-      <workItem from="1530801364794" duration="128000" />
+      <workItem from="1530801364794" duration="2163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19730000" />
+    <option name="totallyTimeSpent" value="21765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -199,6 +205,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -225,7 +232,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,11 +252,12 @@
           <caret line="49" column="31" lean-forward="true" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#LabelFrame#0;class#LabelFrame#0" />
             <element signature="method#labelButtonActionPerformed#0;class#LabelFrame#0" />
             <element signature="method#fontButtonActionPerformed#0;class#LabelFrame#0" />
             <element signature="method#main#0;class#LabelFrame#0" />
             <element signature="method#initComponents#0;class#LabelFrame#0" />
-            <marker date="1530779326865" expanded="false" signature="8402:8739" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1530803828872" expanded="false" signature="9404:9484" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -261,6 +268,7 @@
           <caret line="23" column="104" lean-forward="true" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#print#0;class#LabelPrinter#0" />
           </folding>
         </state>
       </provider>
@@ -271,11 +279,12 @@
           <caret line="37" column="64" lean-forward="true" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#LabelFrame#0;class#LabelFrame#0" />
             <element signature="method#labelButtonActionPerformed#0;class#LabelFrame#0" />
             <element signature="method#fontButtonActionPerformed#0;class#LabelFrame#0" />
             <element signature="method#main#0;class#LabelFrame#0" />
             <element signature="method#initComponents#0;class#LabelFrame#0" />
-            <marker date="1530779326865" expanded="false" signature="8402:8739" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1530803828872" expanded="false" signature="9404:9484" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -286,6 +295,7 @@
           <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#print#0;class#LabelPrinter#0" />
           </folding>
         </state>
       </provider>
@@ -309,27 +319,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LabelFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/LabelPrinter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+        <state relative-caret-position="270">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#labelButtonActionPerformed#0;class#LabelFrame#0" />
-            <element signature="method#fontButtonActionPerformed#0;class#LabelFrame#0" />
-            <element signature="method#main#0;class#LabelFrame#0" />
-            <element signature="method#initComponents#0;class#LabelFrame#0" />
-            <marker date="1530779326865" expanded="false" signature="8402:8739" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="method#print#0;class#LabelPrinter#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LabelPrinter.java">
+    <entry file="file://$PROJECT_DIR$/src/LabelFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="104" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
+        <state relative-caret-position="388">
+          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#LabelFrame#0;class#LabelFrame#0" />
+            <element signature="method#labelButtonActionPerformed#0;class#LabelFrame#0" />
+            <element signature="method#fontButtonActionPerformed#0;class#LabelFrame#0" />
+            <element signature="method#main#0;class#LabelFrame#0" />
+            <element signature="method#initComponents#0;class#LabelFrame#0" />
+            <marker date="1530803828872" expanded="false" signature="9404:9484" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
